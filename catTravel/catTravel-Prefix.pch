@@ -1,0 +1,25 @@
+//
+//  catTravel-Prefix.pch
+//  catTravel
+//
+//  Created by qianfeng on 15/9/18.
+//  Copyright (c) 2015年 qianfeng. All rights reserved.
+//
+
+#ifndef catTravel_catTravel_Prefix_pch
+#define catTravel_catTravel_Prefix_pch
+
+#import <Availability.h>
+
+#ifndef __IPHONE_3_0
+#warning "This project uses features only available in iOS SDK 3.0 and later."
+#endif
+
+#ifdef __OBJC__
+#import "Define.h"
+#import <Foundation/Foundation.h>
+#import <UIKit/UIkit.h>
+
+#endif
+
+#endif

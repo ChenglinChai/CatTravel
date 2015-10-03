@@ -41,7 +41,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 7;
+    return 5;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -49,43 +49,52 @@
     static NSString *Identifier = @"Identifier";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:Identifier];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:Identifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:Identifier];
     }
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    
     cell.textLabel.font = [UIFont systemFontOfSize:20.0f];
     cell.backgroundColor = [UIColor clearColor];
     cell.textLabel.textColor = [UIColor whiteColor];
     
     if (indexPath.row == 0) {
-        cell.textLabel.text = @"开通会员";
-    } else if (indexPath.row == 1) {
-        cell.textLabel.text = @"QQ钱包";
-    } else if (indexPath.row == 2) {
-        cell.textLabel.text = @"网上营业厅";
-    } else if (indexPath.row == 3) {
-        cell.textLabel.text = @"个性装扮";
-    } else if (indexPath.row == 4) {
         cell.textLabel.text = @"我的收藏";
-    } else if (indexPath.row == 5) {
-        cell.textLabel.text = @"我的相册";
-    } else if (indexPath.row == 6) {
-        cell.textLabel.text = @"我的文件";
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    } else if (indexPath.row == 1) {
+        cell.textLabel.text = @"关于猫游记";
+        cell.detailTextLabel.text=@"猫游记 1.0";
+        cell.detailTextLabel.textColor=[UIColor whiteColor];
+        cell.detailTextLabel.font=[UIFont systemFontOfSize:12];
+    } else if (indexPath.row == 2) {
+        cell.textLabel.text = @"关于开发者";
+        cell.detailTextLabel.text=@"卖女孩的懒火柴";
+        cell.detailTextLabel.textColor=[UIColor whiteColor];
+        cell.detailTextLabel.font=[UIFont systemFontOfSize:12];
+    } else if (indexPath.row == 3) {
+        cell.textLabel.text = @"联系方式";
+        cell.detailTextLabel.text=@"1013810971@qq.com";
+        cell.detailTextLabel.textColor=[UIColor whiteColor];
+        cell.detailTextLabel.font=[UIFont systemFontOfSize:12];
+    } else if (indexPath.row == 4) {
+       
+         cell.textLabel.text = @"清除缓存";
     }
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-//    AppDelegate *tempAppDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-//    
-//    [tempAppDelegate.LeftSlideVC closeLeftView];//关闭左侧抽屉
-//    
-//    SaveViewController *save=[[SaveViewController alloc]init];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    AppDelegate *tempAppDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+
+    [tempAppDelegate.LeftSlideVC closeLeftView];//关闭左侧抽屉
+
+    SaveViewController *save=[[SaveViewController alloc]init];
 //    [tempAppDelegate.mainTabVC presentViewController:save animated:YES completion:nil];
     
 }
-
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 70;
+}
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
     return 180;
